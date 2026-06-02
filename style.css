@@ -177,3 +177,18 @@ body {
     right: 4vw;
     position: absolute;
 }
+
+.progress-div {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.backward-arrow {
+    opacity: 0;
+}

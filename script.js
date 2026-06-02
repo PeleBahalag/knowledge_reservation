@@ -83,12 +83,12 @@ const changingText = (event) => {
     console.log(id);
     console.log(number);
 
-    document.querySelectorAll('.cerrent-subject').forEach(element => {
-        if (element.classList.contains)
-    })
-    forEach(element => {
+    // document.querySelectorAll('.cerrent-subject').forEach(element => {
+    //     if (element.classList.contains)
+    // })
+    // forEach(element => {
         
-    })
+    // })
     event.target.style.textDecoration = 'underline';
 
     document.getElementById('sub-headline').innerText = `${value}:`;
