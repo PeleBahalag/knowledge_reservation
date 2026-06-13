@@ -1,5 +1,5 @@
-// Text.
-// Open;
+// Texts.
+
 var subject_0_headlines = ['מטרת הלומדה:',
     'איך זה עובד:', 'איך זה עובד:'
 ];
@@ -17,22 +17,26 @@ var subject_0_text = [
 (כנ״ל על אתר החטיבה בסוף המחזור).`
 ];
 
-var subject_1_headlines = ['הסבר כללי:'];
+const SUB_1_FILES_NUMBER = 14;
+var subject_1_headlines = ['הסבר כללי:', 'דוגמאות:'];
 var subject_1_text = [`האזור בו נמצאים דברים הקשורים להכשרה עצמה ודברים נוספים. 
 
 דוגמאות: סק"ם חי"ג, תיקי יסוד, תיקי חניך, מצעים לדיונים כאלה ואחרים, פורמטים לישיבות וכו'.`];
 
-var subject_2_headlines = ['הסבר כללי:'];
+const SUB_2_FILES_NUMBER = 6;
+var subject_2_headlines = ['הסבר כללי:', 'דוגמאות:'];
 var subject_2_text = [`כל הדברים הקשורים לעולם המבצעי.
 
 דוגמאות: סד"פ תפיסת כוננות, הופ"א וכו'.`];
 
-var subject_3_headlines = ['הסבר כללי:'];
+const SUB_3_FILES_NUMBER = 13;
+var subject_3_headlines = ['הסבר כללי:', 'דוגמאות:'];
 var subject_3_text = [`כל הדברים הקשורים לעולמות הכוח אדם.
 
 דוגמאות: ועדות הערכה, דוחות סיכום הכשרה, כנס קקצ וכו'.`];
 
-var subject_4_headlines = ['הסבר כללי:'];
+const SUB_4_FILES_NUMBER = 10;
+var subject_4_headlines = ['הסבר כללי:', 'דוגמאות:'];
 var subject_4_text = [`כל הדברים הקשורים בשגרה ושוטף.
 
 דוגמאות: מסמך מופעים, מצע למסדרי שגרה וכו'.`];
@@ -70,6 +74,7 @@ const initializeStart = () => {
     });
 }
 
+// Moving to a now html file.
 const initializeMain = () => {
     subjectText = document.getElementById('subject-text');
     subjectHeadline = document.getElementById('subject-headline');
@@ -83,78 +88,338 @@ const initializeMain = () => {
 }
 
 const changingText = (event) => {
+    document.querySelectorAll('.cerrent-subject').forEach(element => {
+        element.classList.remove('cerrent-subject')
+    });
+
     progressBar.src = 'sources/images/progress bar 0.svg';
     progressBar.style.opacity = '1';
     forwardArrow.style.opacity = '1';
     backwardArrow.style.opacity = '0';
-
+        
     let value = event.target.textContent;
     let id = event.target.id;
     let number = id.slice(8,9);
 
-    // console.log(value);
-    // console.log(id);
-    // console.log(number);
+    if(number.includes('5')) {
+        progressBar.style.opacity = '0';
+        forwardArrow.style.opacity = '0';
+    }
 
-    // document.querySelectorAll('.cerrent-subject').forEach(element => {
-    //     if (element.classList.contains)
-    // })
-    // forEach(element => {
-        
-    // })
-    event.target.style.textDecoration = 'underline';
+    if(number.includes('2')) {
+        progressBar.src = 'sources/images/progress bar small 0.svg';
+    }
+
+    event.target.classList.add('cerrent-subject');
     document.getElementById('sub-headline').innerText = `${value}:`;
 
+    console.log(`${event}, ${value}, ${id}, ${number}`);
     const curHeadline = window[`subject_${number}_headlines`];
     const curText = window[`subject_${number}_text`];
     const curNext = window[`subject${number}`];
 
-    console.log(curNext);
-
     subjectHeadline.innerText = curHeadline[0];
     subjectText.innerText = curText[0];
 
-    document.getElementById('forward-arrow').addEventListener('click', curNext);
+    // document.getElementById('forward-arrow').addEventListener('click', curNext);
+    forwardArrow.onclick = curNext;
 }
 
+
+
+
+// פתיח
 var subject0 = () => {
-    document.removeEventListener('click', subject0);
+    forwardArrow.onclick = null;
+
     progressBar.src = 'sources/images/progress bar 1.svg';
     backwardArrow.style.opacity = '1';
-    console.log('sub0');
+    forwardArrow.style.opacity = '1';
+
+    backwardArrow.onclick = subject0Old;
+
+    subjectHeadline.innerText = subject_0_headlines[1];
+    subjectText.innerText = subject_0_text[1];
+
+    forwardArrow.onclick = subject0Next;
 }
 
-var subject1 = () => {
-    document.removeEventListener('click', subject1);
-    progressBar.src = 'sources/images/progress bar 1.svg';
-    backwardArrow.style.opacity = '1';
-    console.log('sub1');
-}
-
-var subject2 = () => {
-    document.removeEventListener('click', subject2);
-    progressBar.src = 'sources/images/progress bar 1.svg';
-    backwardArrow.style.opacity = '1';
-    console.log('sub2');
-}
-
-var subject3 = () => {
-    document.removeEventListener('click', subject3);
-    progressBar.src = 'sources/images/progress bar 1.svg';
-    backwardArrow.style.opacity = '1';
-    console.log('sub3');
-}
-
-var subject4 = () => {
-    document.removeEventListener('click', subject4);
-    progressBar.src = 'sources/images/progress bar 1.svg';
-    backwardArrow.style.opacity = '1';
-    console.log('sub4');
-}
-
-var subject5 = () => {
-    document.removeEventListener('click', subject5);
-    progressBar.style.opacity = '0';
+const subject0Next = () => {
+    forwardArrow.onclick = null;
+    backwardArrow.onclick = subject0;
+    // document.removeEventListener("click", subject0Next);
+    progressBar.src = 'sources/images/progress bar 2.svg';
     forwardArrow.style.opacity = '0';
-    console.log('sub5');
+
+    subjectHeadline.innerText = subject_0_headlines[2];
+    subjectText.innerText = subject_0_text[2];
 }
+
+const subject0Old = () => {
+    forwardArrow.onclick = null;
+    progressBar.src = 'sources/images/progress bar 0.svg';
+    backwardArrow.style.opacity = '0';
+    forwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_0_headlines[0];
+    subjectText.innerText = subject_0_text[0];
+
+    forwardArrow.onclick = subject0;
+}
+
+
+
+// הכשרה
+var subject1 = () => {
+    forwardArrow.onclick = null;
+    forwardArrow.style.opacity = '1';
+
+    progressBar.src = 'sources/images/progress bar 1.svg';
+    backwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_1_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 1; i <= 8; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_1/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub1_${i}`;
+        
+        subjectText.appendChild(newImage);
+    }
+    
+    forwardArrow.onclick = subject1Next;
+    backwardArrow.onclick = subject1Old;
+}
+
+const subject1Next = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 2.svg';
+    forwardArrow.style.opacity = '0';
+
+    subjectHeadline.innerText = subject_1_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 9; i <= SUB_1_FILES_NUMBER; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_1/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub1_${i}`;
+        
+        subjectText.appendChild(newImage);
+    }
+
+    backwardArrow.onclick = subject1;
+}
+
+const subject1Old = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 0.svg';
+    backwardArrow.style.opacity = '0';
+    forwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_1_headlines[0];
+    subjectText.innerText = subject_1_text[0];
+
+    forwardArrow.onclick = subject1;
+}
+
+
+
+
+
+// מבצעי
+var subject2 = () => {
+    progressBar.src = 'sources/images/progress bar small 1.svg';
+    backwardArrow.style.opacity = '1';
+    forwardArrow.style.opacity = '0'
+
+    subjectHeadline.innerText = subject_2_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 1; i <= SUB_2_FILES_NUMBER; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_2/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub2_${i}`;
+        
+        subjectText.appendChild(newImage);
+    }
+
+    backwardArrow.onclick = subject2Old;
+}
+
+const subject2Old = () => {
+    forwardArrow.onclick = null;
+    
+    progressBar.src = 'sources/images/progress bar small 0.svg';
+    backwardArrow.style.opacity = '0';
+    forwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_2_headlines[0];
+    subjectText.innerText = subject_2_text[0];
+
+    forwardArrow.onclick = subject2;
+}
+
+
+
+// כוח אדם
+var subject3 = () => {
+    progressBar.src = 'sources/images/progress bar 1.svg';
+    backwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_1_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 1; i <= 8; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_3/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub1_${i}`;
+        
+        subjectText.appendChild(newImage);
+    }
+    
+    forwardArrow.onclick = subject3Next;
+    backwardArrow.onclick = subject3Old;
+}
+
+const subject3Next = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 2.svg';
+    forwardArrow.style.opacity = '0';
+
+    subjectHeadline.innerText = subject_3_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 9; i <= SUB_3_FILES_NUMBER; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_3/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub3_${i}`;
+        
+        subjectText.appendChild(newImage);
+        
+        if(i === 13) {
+            newImage.addEventListener('click', sub3Info);
+        }
+    }
+
+    backwardArrow.onclick = subject3;
+}
+
+const subject3Old = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 0.svg';
+    backwardArrow.style.opacity = '0';
+    forwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_3_headlines[0];
+    subjectText.innerText = subject_3_text[0];
+
+    forwardArrow.onclick = subject3;
+}
+
+const sub3Info = () => {
+    const newText = document.createElement('p');
+    newText.innerText = 'קיימות מגוון פקאות למופעים שונים - טקסי סיום, קליטות, מסעות וכדומה.';
+    subjectText.appendChild(newText);
+    console.log('hey');
+}
+
+
+
+// שיגרה
+var subject4 = () => {
+    // document.remove(forwardArrow);
+    progressBar.src = 'sources/images/progress bar 1.svg';
+    backwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_1_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 1; i <= 8; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_4/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub1_${i}`;
+        
+        subjectText.appendChild(newImage);
+
+        if(i === 8) {
+            newImage.addEventListener('click', sub4Info1);
+        }
+    }
+    forwardArrow.onclick = subject4Next;
+    backwardArrow.onclick = subject4Old;
+}
+
+const subject4Next = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 2.svg';
+    forwardArrow.style.opacity = '0';
+
+    subjectHeadline.innerText = subject_4_headlines[1];
+    subjectText.innerText = '';
+
+    for(let i = 9; i <= SUB_4_FILES_NUMBER; i++) {
+        const newImage = document.createElement('img');
+        newImage.src = `sources/images/תיקיות/‏‏subject_4/${i}.svg`;
+        newImage.classList = 'foldersImg';
+        newImage.id = `foldersImg_sub4_${i}`;
+        
+        subjectText.appendChild(newImage);
+
+        if(i === 10) {
+            newImage.addEventListener('click', sub4Info2);
+        }
+    }
+
+    backwardArrow.onclick = subject4;
+}
+
+const subject4Old = () => {
+    forwardArrow.onclick = null;
+
+    progressBar.src = 'sources/images/progress bar 0.svg';
+    backwardArrow.style.opacity = '0';
+    forwardArrow.style.opacity = '1';
+
+    subjectHeadline.innerText = subject_4_headlines[0];
+    subjectText.innerText = subject_4_text[0];
+
+    forwardArrow.onclick = subject4;
+}
+
+const sub4Info1 = () => {
+    const newText = document.createElement('p');
+    newText.innerText = 'ישנם מגוון פורמטים למצגות עבור ישיבות שונות.';
+    subjectText.appendChild(newText);
+    console.log('hey');
+}
+
+const sub4Info2 = () => {
+    const newText = document.createElement('p');
+    newText.innerText = 'ישיבת מטה שבועית, ישיבת מפקדים, ישיבת תכנון חודשית, מג”ד שיגרה, סגירת לו”ז, סטטוס בו”ם גדודי, פ”ע ק’ מטה שבועי, קפ”ק 2 לשבוע הבא.';
+    subjectText.appendChild(newText);
+    console.log('hey');
+}
+
+
+// // תוכן עיניינים
+// var subject5 = () => {
+//     // document.removeEventListener('click', subject5);
+//     progressBar.style.opacity = '0';
+//     forwardArrow.style.opacity = '0';
+
+//     subjectHeadline.innerText = subject_1_headlines[1];
+//     subjectText.innerText = '';
+//     // console.log('sub5');
+// }
