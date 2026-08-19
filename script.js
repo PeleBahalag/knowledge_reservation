@@ -340,6 +340,7 @@ var subject4 = () => {
     // document.remove(forwardArrow);
     progressBar.src = 'sources/images/progress bar 1.svg';
     backwardArrow.style.opacity = '1';
+    forwardArrow.style.opacity = '1';
 
     subjectHeadline.innerText = subject_1_headlines[1];
     subjectText.innerText = '';
