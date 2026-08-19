@@ -59,9 +59,12 @@ let backwardArrow;
 window.addEventListener("load", () => {
     let path = window.location.pathname;
 
-    if (path.includes('index')) {
+    // if (path.includes('index')) {
+    //     initializeStart();
+
+    if (path.endsWith('/') || path.includes('index.html')) {
         initializeStart();
-    } else if (path.includes('main')) {
+    } else if (path.includes('main.html')) {
         initializeMain();
     } else {
         console.log('error');
