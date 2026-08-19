@@ -120,11 +120,15 @@ body {
     color: black;
 }
 
+.open-subject {
+    padding-bottom: 0vh !important;
+}
+
 .open-icon {
     width: 7vw;
     height: fit-content;
     padding-right: 10%;
-    padding-top: 2%;
+    padding-top: 25%;
 }
 
 .symbol {
@@ -178,7 +182,7 @@ body {
     height: 60vh;
     color: black;
     /* bottom: 12vh; */
-    top: 26vh;
+    top: 27vh;
     position: absolute;
     text-align: center;
     left: 50%;
@@ -228,7 +232,7 @@ body {
 .cerrent-subject {
     border-bottom: solid;
     font-weight: 700;
-    padding-bottom: 2.3vh;
+    padding-bottom: 2vh;
 }
 
 .foldersImg {

@@ -113,6 +113,10 @@ const changingText = (event) => {
         progressBar.src = 'sources/images/progress bar small 0.svg';
     }
 
+    if(number.includes('0')) {
+        event.target.classList.add('open-subject');
+    }
+
     event.target.classList.add('cerrent-subject');
     document.getElementById('sub-headline').innerText = `${value}:`;
 
