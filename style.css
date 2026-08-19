@@ -175,10 +175,10 @@ body {
 
 .knowledge {
     width: 78vw;
-    height: 56vh;
+    height: 60vh;
     color: black;
     /* bottom: 12vh; */
-    top: 32vh;
+    top: 26vh;
     position: absolute;
     text-align: center;
     left: 50%;
@@ -197,7 +197,7 @@ body {
 
 .progress-div {
     position: absolute;
-    bottom: 5vh;
+    bottom: 2vh;
     left: 50%;
     transform: translate(-50%);
     width: 75vw;
