@@ -177,7 +177,8 @@ body {
     width: 78vw;
     height: 56vh;
     color: black;
-    bottom: 12vh;
+    /* bottom: 12vh; */
+    top: 32vh;
     position: absolute;
     text-align: center;
     left: 50%;

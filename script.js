@@ -183,7 +183,7 @@ var subject1 = () => {
     subjectHeadline.innerText = subject_1_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 1; i <= 8; i++) {
+    for(let i = 1; i <= 7; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_1/${i}.svg`;
         newImage.classList = 'foldersImg';
@@ -205,7 +205,7 @@ const subject1Next = () => {
     subjectHeadline.innerText = subject_1_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 9; i <= SUB_1_FILES_NUMBER; i++) {
+    for(let i = 8; i <= SUB_1_FILES_NUMBER; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_1/${i}.svg`;
         newImage.classList = 'foldersImg';
@@ -274,11 +274,12 @@ const subject2Old = () => {
 var subject3 = () => {
     progressBar.src = 'sources/images/progress bar 1.svg';
     backwardArrow.style.opacity = '1';
+    forwardArrow.style.opacity = '1';
 
     subjectHeadline.innerText = subject_1_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 1; i <= 8; i++) {
+    for(let i = 1; i <= 7; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_3/${i}.svg`;
         newImage.classList = 'foldersImg';
@@ -300,7 +301,7 @@ const subject3Next = () => {
     subjectHeadline.innerText = subject_3_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 9; i <= SUB_3_FILES_NUMBER; i++) {
+    for(let i = 8; i <= SUB_3_FILES_NUMBER; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_3/${i}.svg`;
         newImage.classList = 'foldersImg';
@@ -348,7 +349,7 @@ var subject4 = () => {
     subjectHeadline.innerText = subject_1_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 1; i <= 8; i++) {
+    for(let i = 1; i <= 5; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_4/${i}.svg`;
         newImage.classList = 'foldersImg';
@@ -356,7 +357,7 @@ var subject4 = () => {
         
         subjectText.appendChild(newImage);
 
-        if(i === 8) {
+        if(i === 5) {
             newImage.addEventListener('click', sub4Info1);
         }
     }
@@ -373,7 +374,7 @@ const subject4Next = () => {
     subjectHeadline.innerText = subject_4_headlines[1];
     subjectText.innerText = '';
 
-    for(let i = 9; i <= SUB_4_FILES_NUMBER; i++) {
+    for(let i = 6; i <= SUB_4_FILES_NUMBER; i++) {
         const newImage = document.createElement('img');
         newImage.src = `sources/images/תיקיות/‏‏subject_4/${i}.svg`;
         newImage.classList = 'foldersImg';
